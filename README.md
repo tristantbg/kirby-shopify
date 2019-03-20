@@ -1,4 +1,4 @@
-# Kirby Pluginkit: Example plugin for Kirby
+# Kirby Pluginkit: Example plugin for Kirby 3
 
 > Variant "Setup with Composer dependencies"
 
