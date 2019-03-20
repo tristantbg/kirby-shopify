@@ -1,0 +1,23 @@
+{
+    "name": "getkirby/pluginkit",
+    "description": "Kirby Example Plugin",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "you@example.com"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Superwoman\\Superplugin\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
