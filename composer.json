@@ -10,11 +10,13 @@
         }
     ],
     "require": {
-        "getkirby/composer-installer": "^1.1"
+        "getkirby/composer-installer": "^1.1",
+        "vlucas/phpdotenv": "^2.4",
+        "phpclassic/php-shopify": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Superwoman\\Superplugin\\": "src/"
+            "TristanB\\KirbyShopify\\": "src/"
         }
     },
     "config": {

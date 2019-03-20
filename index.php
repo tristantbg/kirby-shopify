@@ -2,6 +2,6 @@
 
 @include_once __DIR__ . '/vendor/autoload.php';
 
-Kirby::plugin('getkirby/pluginkit', [
+Kirby::plugin('tristanb/kirby-shopify', [
     // plugin magic happens here
 ]);
