@@ -22,7 +22,7 @@ composer require tristantbg/kirby-shopify
 
 ## Setup
 
-WIP
+Set your `.env` file inside the plugin folder using the `.env.example` one
 
 ## Options
 
