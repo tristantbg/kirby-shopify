@@ -30,6 +30,7 @@ return array(
     'PHPShopify\\Comment' => $vendorDir . '/phpclassic/php-shopify/lib/Comment.php',
     'PHPShopify\\Country' => $vendorDir . '/phpclassic/php-shopify/lib/Country.php',
     'PHPShopify\\CurlRequest' => $vendorDir . '/phpclassic/php-shopify/lib/CurlRequest.php',
+    'PHPShopify\\CurlResponse' => $vendorDir . '/phpclassic/php-shopify/lib/CurlResponse.php',
     'PHPShopify\\CustomCollection' => $vendorDir . '/phpclassic/php-shopify/lib/CustomCollection.php',
     'PHPShopify\\Customer' => $vendorDir . '/phpclassic/php-shopify/lib/Customer.php',
     'PHPShopify\\CustomerAddress' => $vendorDir . '/phpclassic/php-shopify/lib/CustomerAddress.php',
@@ -39,6 +40,7 @@ return array(
     'PHPShopify\\Event' => $vendorDir . '/phpclassic/php-shopify/lib/Event.php',
     'PHPShopify\\Exception\\ApiException' => $vendorDir . '/phpclassic/php-shopify/lib/Exception/ApiException.php',
     'PHPShopify\\Exception\\CurlException' => $vendorDir . '/phpclassic/php-shopify/lib/Exception/CurlException.php',
+    'PHPShopify\\Exception\\ResourceRateLimitException' => $vendorDir . '/phpclassic/php-shopify/lib/Exception/ResourceRateLimitException.php',
     'PHPShopify\\Exception\\SdkException' => $vendorDir . '/phpclassic/php-shopify/lib/Exception/SdkException.php',
     'PHPShopify\\Fulfillment' => $vendorDir . '/phpclassic/php-shopify/lib/Fulfillment.php',
     'PHPShopify\\FulfillmentEvent' => $vendorDir . '/phpclassic/php-shopify/lib/FulfillmentEvent.php',
@@ -76,5 +78,4 @@ return array(
     'PHPShopify\\User' => $vendorDir . '/phpclassic/php-shopify/lib/User.php',
     'PHPShopify\\Webhook' => $vendorDir . '/phpclassic/php-shopify/lib/Webhook.php',
     'Symfony\\Polyfill\\Ctype\\Ctype' => $vendorDir . '/symfony/polyfill-ctype/Ctype.php',
-    'TristanB\\KirbyShopify\\KirbyShopify' => $baseDir . '/src/KirbyShopify.php',
 );

@@ -74,6 +74,7 @@ use PHPShopify\Exception\SdkException;
  * @property-read Customer $Customer
  * @property-read CustomerSavedSearch $CustomerSavedSearch
  * @property-read Discount $Discount
+ * @property-read PriceRule $PriceRule
  * @property-read Event $Event
  * @property-read FulfillmentService $FulfillmentService
  * @property-read GiftCard $GiftCard
@@ -107,6 +108,7 @@ use PHPShopify\Exception\SdkException;
  * @method Customer Customer(integer $id = null)
  * @method CustomerSavedSearch CustomerSavedSearch(integer $id = null)
  * @method Discount Discount(integer $id = null)
+ * @method PriceRule PriceRule(integer $id = null)
  * @method Event Event(integer $id = null)
  * @method FulfillmentService FulfillmentService(integer $id = null)
  * @method GiftCard GiftCard(integer $id = null)
@@ -147,7 +149,9 @@ class ShopifySDK
      *
      * @var array
      */
-    public static $config = array();
+    public static $config = array(
+        'ApiVersion' => '2019-04'
+    );
 
     /**
      * List of available resources which can be called from this client
@@ -223,8 +227,7 @@ class ShopifySDK
     public function __construct($config = array())
     {
         if(!empty($config)) {
-            ShopifySDK::$config = $config;
-            ShopifySDK::setAdminUrl();
+            ShopifySDK::config($config);
         }
     }
 
@@ -313,6 +316,7 @@ class ShopifySDK
 
         //Remove https:// and trailing slash (if provided)
         $shopUrl = preg_replace('#^https?://|/$#', '', $shopUrl);
+        $apiVersion = self::$config['ApiVersion'];
 
         if(isset(self::$config['ApiKey']) && isset(self::$config['Password'])) {
             $apiKey = self::$config['ApiKey'];
@@ -323,6 +327,7 @@ class ShopifySDK
         }
 
         self::$config['AdminUrl'] = $adminUrl;
+        self::$config['ApiUrl'] = $adminUrl . "api/$apiVersion/";
 
         return $adminUrl;
     }
@@ -334,6 +339,15 @@ class ShopifySDK
      */
     public static function getAdminUrl() {
         return self::$config['AdminUrl'];
+    }
+
+    /**
+     * Get the api url of the configured shop
+     *
+     * @return string
+     */
+    public static function getApiUrl() {
+        return self::$config['ApiUrl'];
     }
 
     /**

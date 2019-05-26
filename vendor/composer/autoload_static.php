@@ -4,17 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit67827300a2c4342b27418599a66a4466
+class ComposerStaticInite4673e38b8d4402e7a200a551b4faac0
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
-        array (
-            'TristanB\\KirbyShopify\\' => 22,
-        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
@@ -34,10 +30,6 @@ class ComposerStaticInit67827300a2c4342b27418599a66a4466
     );
 
     public static $prefixDirsPsr4 = array (
-        'TristanB\\KirbyShopify\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
@@ -81,6 +73,7 @@ class ComposerStaticInit67827300a2c4342b27418599a66a4466
         'PHPShopify\\Comment' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Comment.php',
         'PHPShopify\\Country' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Country.php',
         'PHPShopify\\CurlRequest' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/CurlRequest.php',
+        'PHPShopify\\CurlResponse' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/CurlResponse.php',
         'PHPShopify\\CustomCollection' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/CustomCollection.php',
         'PHPShopify\\Customer' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Customer.php',
         'PHPShopify\\CustomerAddress' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/CustomerAddress.php',
@@ -90,6 +83,7 @@ class ComposerStaticInit67827300a2c4342b27418599a66a4466
         'PHPShopify\\Event' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Event.php',
         'PHPShopify\\Exception\\ApiException' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Exception/ApiException.php',
         'PHPShopify\\Exception\\CurlException' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Exception/CurlException.php',
+        'PHPShopify\\Exception\\ResourceRateLimitException' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Exception/ResourceRateLimitException.php',
         'PHPShopify\\Exception\\SdkException' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Exception/SdkException.php',
         'PHPShopify\\Fulfillment' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Fulfillment.php',
         'PHPShopify\\FulfillmentEvent' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/FulfillmentEvent.php',
@@ -127,15 +121,14 @@ class ComposerStaticInit67827300a2c4342b27418599a66a4466
         'PHPShopify\\User' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/User.php',
         'PHPShopify\\Webhook' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Webhook.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
-        'TristanB\\KirbyShopify\\KirbyShopify' => __DIR__ . '/../..' . '/src/KirbyShopify.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit67827300a2c4342b27418599a66a4466::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit67827300a2c4342b27418599a66a4466::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit67827300a2c4342b27418599a66a4466::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite4673e38b8d4402e7a200a551b4faac0::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite4673e38b8d4402e7a200a551b4faac0::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite4673e38b8d4402e7a200a551b4faac0::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -46,16 +46,16 @@
         },
         {
             "name": "phpclassic/php-shopify",
-            "version": "v1.0.3",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpclassic/php-shopify.git",
-                "reference": "d3c7f3bdfed59dd4fdcd005cef80f7bfb5d4a6c3"
+                "reference": "c47eb45c18c0b5b19958b6f42eaa003c89717bd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpclassic/php-shopify/zipball/d3c7f3bdfed59dd4fdcd005cef80f7bfb5d4a6c3",
-                "reference": "d3c7f3bdfed59dd4fdcd005cef80f7bfb5d4a6c3",
+                "url": "https://api.github.com/repos/phpclassic/php-shopify/zipball/c47eb45c18c0b5b19958b6f42eaa003c89717bd9",
+                "reference": "c47eb45c18c0b5b19958b6f42eaa003c89717bd9",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "sdk",
                 "shopify"
             ],
-            "time": "2018-08-28T07:56:43+00:00"
+            "time": "2019-05-23T15:12:17+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
