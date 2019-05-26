@@ -31,10 +31,11 @@ WIP
 
 ## API
 
+```
 \KirbyShopify\App::init()
 \KirbyShopify\App::getProducts()
 \KirbyShopify\App::clearCache()
-
+```
 
 ## License
 
