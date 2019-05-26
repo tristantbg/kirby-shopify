@@ -29,9 +29,12 @@ Add manually a page called `products` with the template `shopify.products` in th
 
 WIP
 
-## Development
+## API
 
-WIP
+####\KirbyShopify\App::init()
+####\KirbyShopify\App::getProducts()
+####\KirbyShopify\App::clearCache()
+
 
 ## License
 
