@@ -31,9 +31,9 @@ WIP
 
 ## API
 
-####\KirbyShopify\App::init()
-####\KirbyShopify\App::getProducts()
-####\KirbyShopify\App::clearCache()
+\KirbyShopify\App::init()
+\KirbyShopify\App::getProducts()
+\KirbyShopify\App::clearCache()
 
 
 ## License
