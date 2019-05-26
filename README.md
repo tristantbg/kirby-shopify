@@ -22,7 +22,8 @@ composer require tristantbg/kirby-shopify
 
 ## Setup
 
-Set your `.env` file inside the plugin folder using the `.env.example` one
+Set your `.env` file inside the plugin folder using the `.env.example` one with your Storefront credentials.
+Add manually a page called `products` with the template `shopify.products` in the content folder. (like shown in "example")
 
 ## Options
 
