@@ -14,11 +14,6 @@
         "vlucas/phpdotenv": "^2.4",
         "phpclassic/php-shopify": "^1.0"
     },
-    "autoload": {
-        "psr-4": {
-            "TristanB\\KirbyShopify\\": "src/"
-        }
-    },
     "config": {
         "optimize-autoloader": true
     }

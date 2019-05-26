@@ -1,0 +1,8 @@
+title: Products
+
+sections:
+  products:
+    headline: Products
+    type: pages
+    info: "{{ page.handle }}"
+    template: shopify.product

@@ -1,0 +1,73 @@
+title: Product
+
+sections:
+  shopify:
+    type: fields
+    fields:
+      test:
+        label: test
+        type: text
+      shopifyAvailable:
+        label: Available
+        type: toggle
+        disabled: true
+      shopifyTitle:
+        label: Title
+        type: text
+        disabled: true
+        width: 2/4
+      shopifyID:
+        label: ID
+        type: text
+        disabled: true
+        width: 1/4
+      shopifyHandle:
+        label: Handle
+        type: text
+        disabled: true
+        width: 1/4
+      shopifyCurrentPrice:
+        label: Price
+        type: text
+        disabled: true
+        width: 1/2
+      shopifyFeaturedImage:
+        label: Featured
+        type: structure
+        disabled: true
+        fields:
+          src:
+            label: URL
+            type: url
+        width: 1/2
+      shopifyDescription:
+        label: Description
+        type: textarea
+        disabled: true
+      shopifyImages:
+        label: Images
+        type: structure
+        fields:
+          src:
+            label: URL
+            type: url
+        disabled: true
+      shopifyURL:
+        label: URL
+        type: url
+        disabled: true
+      shopifyType:
+        label: Type
+        type: text
+        disabled: true
+        width: 1/2
+      shopifyVendor:
+        label: Vendor
+        type: text
+        disabled: true
+        width: 1/2
+      shopifyTags:
+        label: Tags
+        type: tags
+        separator: ,
+        disabled: true
