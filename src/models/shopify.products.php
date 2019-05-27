@@ -13,7 +13,7 @@ class ShopifyProductsPage extends Page
 
         if ($products === null) {
             $products = \KirbyShopify\App::getProducts();
-            $shopifyApiCache->set('products', $products, 30);
+            $shopifyApiCache->set('products', $products);
         }
 
         $pages = [];
@@ -26,16 +26,16 @@ class ShopifyProductsPage extends Page
                 'title'                  => $product['title'],
                 'shopifyTitle'           => $product['title'],
                 'shopifyID'              => $product['id'],
-                // 'shopifyURL' => $product['url'],
                 'shopifyHandle'          => $product['handle'],
-                // 'shopifyCurrentPrice' => $product['price'],
-                // 'shopifyCompareAtPrice' => $product['compareAtPrice'],
-                // 'shopifyAvailable' => $product['available'] == 1 ? 'true' : 'false',
                 'shopifyFeaturedImage'   => count($product['images']) > 0 ? \Kirby\Data\Yaml::encode($product['images'][0]) : '',
                 'shopifyImages'          => \Kirby\Data\Yaml::encode($product['images']),
                 'shopifyDescriptionHTML' => $product['body_html'],
                 'shopifyType'            => $product['product_type'],
                 'shopifyTags'            => $product['tags'],
+                // 'shopifyURL' => $product['url'],
+                // 'shopifyCurrentPrice' => $product['price'],
+                // 'shopifyCompareAtPrice' => $product['compareAtPrice'],
+                // 'shopifyAvailable' => false,
             ];
 
             $pages[] = [
@@ -45,7 +45,7 @@ class ShopifyProductsPage extends Page
                 'content'  =>
                 $kirbyProduct
                 ?
-                array_merge($shopifyProduct, $kirbyProduct->toArray())
+                array_merge($kirbyProduct->toArray(), $shopifyProduct)
                 :
                 $shopifyProduct,
             ];

@@ -1,5 +1,10 @@
 title: Product
-
+options:
+  delete: false
+  changeTitle: false
+  changeTemplate: false
+  changeSlug: false
+  changeStatus: false
 sections:
   shopify:
     type: fields
@@ -40,7 +45,7 @@ sections:
             label: URL
             type: url
         width: 1/2
-      shopifyDescription:
+      shopifyDescriptionHTML:
         label: Description
         type: textarea
         disabled: true
