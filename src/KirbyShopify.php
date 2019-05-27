@@ -55,4 +55,15 @@ class App
 
     }
 
+    public static function getProduct($id)
+    {
+
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
+        }
+
+        return $id ? self::$shopify->Product($id)->get() : null;
+
+    }
+
 }

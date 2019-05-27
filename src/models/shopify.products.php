@@ -23,7 +23,7 @@ class ShopifyProductsPage extends Page
             $kirbyProductRoot = page('products')->root() . '/' . Str::slug($product['handle']) . '/shopify.product.txt';
             $kirbyProduct     = F::exists($kirbyProductRoot) ? new \Kirby\Toolkit\Collection(\Kirby\Data\Data::read($kirbyProductRoot)) : false;
 
-            $shopifyProduct   = [
+            $shopifyProduct = [
                 'title'                  => $product['title'],
                 'shopifyTitle'           => $product['title'],
                 'shopifyID'              => $product['id'],
@@ -33,10 +33,7 @@ class ShopifyProductsPage extends Page
                 'shopifyDescriptionHTML' => $product['body_html'],
                 'shopifyType'            => $product['product_type'],
                 'shopifyTags'            => $product['tags'],
-                // 'shopifyURL' => $product['url'],
-                // 'shopifyCurrentPrice' => $product['price'],
-                // 'shopifyCompareAtPrice' => $product['compareAtPrice'],
-                // 'shopifyAvailable' => false,
+                'shopifyVariants'        => \Kirby\Data\Yaml::encode($product['variants']),
             ];
 
             $pages[] = [

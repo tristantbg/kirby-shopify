@@ -57,6 +57,20 @@ sections:
             label: URL
             type: url
         disabled: true
+      shopifyVariants:
+        label: Variants
+        type: structure
+        fields:
+          price:
+            label: Price
+            type: text
+          inventory_quantity:
+            label: Inventory
+            type: text
+          sku:
+            label: SKU
+            type: text
+        disabled: true
       shopifyURL:
         label: URL
         type: url
