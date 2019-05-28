@@ -1,5 +1,10 @@
 title: Product
-
+options:
+  delete: false
+  changeTitle: false
+  changeTemplate: false
+  changeSlug: false
+  changeStatus: false
 sections:
   shopify:
     type: fields
@@ -40,7 +45,7 @@ sections:
             label: URL
             type: url
         width: 1/2
-      shopifyDescription:
+      shopifyDescriptionHTML:
         label: Description
         type: textarea
         disabled: true
@@ -51,6 +56,20 @@ sections:
           src:
             label: URL
             type: url
+        disabled: true
+      shopifyVariants:
+        label: Variants
+        type: structure
+        fields:
+          price:
+            label: Price
+            type: text
+          inventory_quantity:
+            label: Inventory
+            type: text
+          sku:
+            label: SKU
+            type: text
         disabled: true
       shopifyURL:
         label: URL

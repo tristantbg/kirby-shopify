@@ -1,7 +1,7 @@
 <?php
 
-use \PHPShopify\ShopifySDK;
 use \Dotenv\Dotenv;
+use \PHPShopify\ShopifySDK;
 
 namespace KirbyShopify;
 
@@ -12,35 +12,58 @@ $dotenv->load();
 
 class App
 {
-  private static $config = [];
-  private static $shopify = null;
+    private static $config  = [];
+    private static $shopify = null;
 
-  public static function init() {
+    public static function init()
+    {
 
+        self::$config = [
+            'ApiKey'   => $_ENV['API_KEY'],
+            'Password' => $_ENV['API_PASSWORD'],
+            'ShopUrl'  => $_ENV['SHOP_URL'],
+        ];
 
-    self::$config = [
-      'ApiKey' => $_ENV['API_KEY'],
-      'Password' => $_ENV['API_PASSWORD'],
-      'ShopUrl' => $_ENV['SHOP_URL']
-    ];
+        self::$shopify = new \PHPShopify\ShopifySDK(self::$config);
 
-    self::$shopify = new \PHPShopify\ShopifySDK(self::$config);
+    }
 
-  }
+    public static function clearCache()
+    {
 
-  public static function clearCache() {
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $shopifyApiCache->set('products', null);
 
-    $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
-    $shopifyApiCache->set('products', null);
+    }
 
-  }
+    public static function clearKirbyCache()
+    {
 
-  public static function getProducts() {
+        kirby()->impersonate('kirby');
+        kirby()->site()->homepage()->update();
 
-    if (!self::$shopify) \KirbyShopify\App::init();
+    }
 
-    return self::$shopify->Product->get();
+    public static function getProducts()
+    {
 
-  }
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
+        }
+
+        return self::$shopify->Product->get();
+
+    }
+
+    public static function getProduct($id)
+    {
+
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
+        }
+
+        return $id ? self::$shopify->Product($id)->get() : null;
+
+    }
 
 }
