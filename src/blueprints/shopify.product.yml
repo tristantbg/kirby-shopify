@@ -31,19 +31,20 @@ sections:
         type: text
         disabled: true
         width: 1/4
-      shopifyCurrentPrice:
+      shopifyPrice:
         label: Price
         type: text
         disabled: true
-        width: 1/2
+        width: 1/4
+      shopifyCompareAtPrice:
+        label: Price
+        type: text
+        disabled: true
+        width: 1/4
       shopifyFeaturedImage:
         label: Featured
-        type: structure
+        type: url
         disabled: true
-        fields:
-          src:
-            label: URL
-            type: url
         width: 1/2
       shopifyDescriptionHTML:
         label: Description
@@ -63,6 +64,9 @@ sections:
         fields:
           price:
             label: Price
+            type: text
+          compare_at_price:
+            label: Compare at price
             type: text
           inventory_quantity:
             label: Inventory
