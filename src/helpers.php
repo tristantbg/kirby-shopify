@@ -1,5 +1,5 @@
 <?php
 
-function ok() {
-	
-}
+// function ok() {
+
+// }
