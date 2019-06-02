@@ -9,10 +9,6 @@ sections:
   shopify:
     type: fields
     fields:
-      shopifyAvailable:
-        label: Available
-        type: toggle
-        disabled: true
       shopifyTitle:
         label: Title
         type: text
