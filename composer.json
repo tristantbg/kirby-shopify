@@ -1,12 +1,12 @@
 {
-    "name": "getkirby/pluginkit",
-    "description": "Kirby Example Plugin",
+    "name": "getkirby/kirby-shopify",
+    "description": "Kirby Shopify",
     "type": "kirby-plugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "Your Name",
-            "email": "you@example.com"
+            "name": "Tristan Bagot",
+            "email": "hello@tristanbagot.com"
         }
     ],
     "require": {
