@@ -18,5 +18,16 @@ Kirby::plugin('tristanb/kirby-shopify', [
     'blueprints' => [
         'pages/shopify.products' => __DIR__ . '/src/blueprints/shopify.products.yml',
         'pages/shopify.product' => __DIR__ . '/src/blueprints/shopify.product.yml'
+    ],
+    'routes' => [
+      [
+        'pattern' => 'kirby-shopify/api/cache/clear',
+        'method' => 'POST',
+        'action'  => function () {
+          \KirbyShopify\App::clearCache();
+          \KirbyShopify\App::clearKirbyCache();
+          return 'Cache cleared';
+        }
+      ]
     ]
 ]);
