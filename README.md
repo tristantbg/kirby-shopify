@@ -64,6 +64,7 @@ const Shop = {
     },
     "cart": {
         iframe: true,
+        startOpen: true,
         popup: true,
         "contents": {
             "button": true
