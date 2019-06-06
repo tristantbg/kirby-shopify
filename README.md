@@ -25,6 +25,11 @@ composer require tristantbg/kirby-shopify
 Set your `.env` file inside the plugin folder using the `.env.example` one with your Storefront credentials.
 Add manually a page called `products` with the template `shopify.products` in the content folder. (like shown in "example")
 
+## Make Shopify update your Kirby products list
+
+Set a Shopify webhook for "Product create", "Product update", "Product delete" with value:
+`https://your-kirby.com/kirby-shopify/api/cache/clear`
+
 ## Options
 
 WIP
