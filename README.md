@@ -28,7 +28,9 @@ Add manually a page called `products` with the template `shopify.products` in th
 ## Make Shopify update your Kirby products list
 
 Set a Shopify webhook for "Product create", "Product update", "Product delete" with value:
-`https://your-kirby.com/kirby-shopify/api/cache/clear`
+```
+https://your-kirby.com/kirby-shopify/api/cache/clear
+```
 
 ## Options
 
