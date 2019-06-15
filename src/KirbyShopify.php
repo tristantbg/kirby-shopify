@@ -47,11 +47,28 @@ class App
     public static function getProducts()
     {
 
-        if (!self::$shopify) {
-            \KirbyShopify\App::init();
+      if (!self::$shopify) {
+          \KirbyShopify\App::init();
+      }
+
+      $products = [];
+      $productCount = self::$shopify->Product->count();
+
+      if ($productCount > 0) {
+
+        $products = self::$shopify->Product->get(['limit' => 250]);
+
+        while (count($products) < $productCount) {
+          $lastItem = array_values(array_slice($products, -1))[0];
+          $nextProducts = self::$shopify->Product->get(['limit' => 250, 'since_id' => $lastItem['id']]);
+          foreach ($nextProducts as $key => $product) {
+            $products[] = $product;
+          }
         }
 
-        return self::$shopify->Product->get();
+      }
+
+      return $products;
 
     }
 
