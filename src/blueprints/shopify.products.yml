@@ -1,5 +1,8 @@
 title: Products
-
+options:
+  delete: false
+  changeTemplate: false
+  changeStatus: true
 sections:
   products:
     headline: Products

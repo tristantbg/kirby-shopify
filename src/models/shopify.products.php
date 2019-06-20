@@ -40,6 +40,7 @@ class ShopifyProductsPage extends Page
 
             $pages[] = [
                 'slug'     => Str::slug($product['handle']),
+                'num'      => $key+1,
                 'template' => 'shopify.product',
                 'model'    => 'shopify.product',
                 'content'  =>
