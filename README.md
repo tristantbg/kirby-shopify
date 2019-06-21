@@ -31,6 +31,7 @@ Set a Shopify webhook for "Product create", "Product update", "Product delete" w
 ```
 https://your-kirby.com/kirby-shopify/api/cache/clear
 ```
+(The webhook is verified for security reasons: https://help.shopify.com/en/api/getting-started/webhooks#verify-webhook)
 
 ## Frontend
 
