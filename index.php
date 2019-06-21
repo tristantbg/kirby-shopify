@@ -24,9 +24,15 @@ Kirby::plugin('tristanb/kirby-shopify', [
         'pattern' => 'kirby-shopify/api/cache/clear',
         'method' => 'POST',
         'action'  => function () {
-          \KirbyShopify\App::clearCache();
-          \KirbyShopify\App::clearKirbyCache();
-          return 'Cache cleared';
+          $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+          $data = file_get_contents('php://input');
+          $verified = \KirbyShopify\App::verifyWebhook($data, $hmac_header);
+
+          if ($verified) {
+            \KirbyShopify\App::clearCache();
+            \KirbyShopify\App::clearKirbyCache();
+            return 'Cache cleared';
+          }
         }
       ]
     ]
