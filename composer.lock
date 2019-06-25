@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b671fc9748021d842de40ed430ac3a24",
+    "content-hash": "dc18a4451a679ab49bc6699ac55c8cf0",
     "packages": [
         {
             "name": "getkirby/composer-installer",
@@ -46,16 +46,16 @@
         },
         {
             "name": "phpclassic/php-shopify",
-            "version": "v1.0.6",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpclassic/php-shopify.git",
-                "reference": "c47eb45c18c0b5b19958b6f42eaa003c89717bd9"
+                "reference": "3b402c3bb339129b211ddcf4c78f480b2e6d96d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpclassic/php-shopify/zipball/c47eb45c18c0b5b19958b6f42eaa003c89717bd9",
-                "reference": "c47eb45c18c0b5b19958b6f42eaa003c89717bd9",
+                "url": "https://api.github.com/repos/phpclassic/php-shopify/zipball/3b402c3bb339129b211ddcf4c78f480b2e6d96d4",
+                "reference": "3b402c3bb339129b211ddcf4c78f480b2e6d96d4",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "sdk",
                 "shopify"
             ],
-            "time": "2019-05-23T15:12:17+00:00"
+            "time": "2019-06-12T09:45:59+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

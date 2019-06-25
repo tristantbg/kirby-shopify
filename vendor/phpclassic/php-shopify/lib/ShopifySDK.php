@@ -60,6 +60,9 @@ namespace PHPShopify;
 | //Get variants of a product (using Child resource)
 | $products = $shopify->Product($productID)->Variant->get();
 |
+| //GraphQL
+| $data = $shopify->GraphQL->post($graphQL);
+|
 */
 use PHPShopify\Exception\SdkException;
 
@@ -70,6 +73,7 @@ use PHPShopify\Exception\SdkException;
  * @property-read Collect $Collect
  * @property-read Comment $Comment
  * @property-read Country $Country
+ * @property-read Currency $Currency
  * @property-read CustomCollection $CustomCollection
  * @property-read Customer $Customer
  * @property-read CustomerSavedSearch $CustomerSavedSearch
@@ -87,6 +91,7 @@ use PHPShopify\Exception\SdkException;
  * @property-read Page $Page
  * @property-read Policy $Policy
  * @property-read Product $Product
+ * @property-read ProductListing $ProductListing
  * @property-read ProductVariant $ProductVariant
  * @property-read RecurringApplicationCharge $RecurringApplicationCharge
  * @property-read Redirect $Redirect
@@ -97,6 +102,7 @@ use PHPShopify\Exception\SdkException;
  * @property-read Theme $Theme
  * @property-read User $User
  * @property-read Webhook $Webhook
+ * @property-read GraphQL $GraphQL
  *
  * @method AbandonedCheckout AbandonedCheckout(integer $id = null)
  * @method Blog Blog(integer $id = null)
@@ -104,6 +110,7 @@ use PHPShopify\Exception\SdkException;
  * @method Collect Collect(integer $id = null)
  * @method Comment Comment(integer $id = null)
  * @method Country Country(integer $id = null)
+ * @method Currency Currency(integer $id = null)
  * @method CustomCollection CustomCollection(integer $id = null)
  * @method Customer Customer(integer $id = null)
  * @method CustomerSavedSearch CustomerSavedSearch(integer $id = null)
@@ -121,6 +128,7 @@ use PHPShopify\Exception\SdkException;
  * @method Page Page(integer $id = null)
  * @method Policy Policy(integer $id = null)
  * @method Product Product(integer $id = null)
+ * @method ProductListing ProductListing(integer $id = null)
  * @method ProductVariant ProductVariant(integer $id = null)
  * @method RecurringApplicationCharge RecurringApplicationCharge(integer $id = null)
  * @method Redirect Redirect(integer $id = null)
@@ -131,6 +139,7 @@ use PHPShopify\Exception\SdkException;
  * @method Theme Theme(int $id = null)
  * @method User User(integer $id = null)
  * @method Webhook Webhook(integer $id = null)
+ * @method GraphQL GraphQL()
  */
 class ShopifySDK
 {
@@ -166,6 +175,7 @@ class ShopifySDK
         'Collect',
         'Comment',
         'Country',
+        'Currency',
         'CustomCollection',
         'Customer',
         'CustomerSavedSearch',
@@ -182,6 +192,7 @@ class ShopifySDK
         'Page',
         'Policy',
         'Product',
+        'ProductListing',
         'ProductVariant',
         'PriceRule',
         'RecurringApplicationCharge',
@@ -194,6 +205,7 @@ class ShopifySDK
         'Theme',
         'User',
         'Webhook',
+        'GraphQL'
     );
 
     /**
