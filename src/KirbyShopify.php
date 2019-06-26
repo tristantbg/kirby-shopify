@@ -52,15 +52,15 @@ class App
       }
 
       $products = [];
-      $productCount = self::$shopify->Product->count();
+      $productCount = self::$shopify->Product->count(['published_status' => 'published']);
 
       if ($productCount > 0) {
 
-        $products = self::$shopify->Product->get(['limit' => 250]);
+        $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published']);
 
         while (count($products) < $productCount) {
           $lastItem = array_values(array_slice($products, -1))[0];
-          $nextProducts = self::$shopify->Product->get(['limit' => 250, 'since_id' => $lastItem['id']]);
+          $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
           foreach ($nextProducts as $key => $product) {
             $products[] = $product;
           }
