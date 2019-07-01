@@ -33,6 +33,7 @@ class App
 
         $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
         $shopifyApiCache->set('products', null);
+        $shopifyApiCache->set('collections', null);
 
     }
 
