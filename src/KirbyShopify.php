@@ -37,6 +37,22 @@ class App
 
     }
 
+    public static function clearProductsCache()
+    {
+
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $shopifyApiCache->set('products', null);
+
+    }
+
+    public static function clearCollectionsCache()
+    {
+
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $shopifyApiCache->set('collections', null);
+
+    }
+
     public static function clearKirbyCache()
     {
 

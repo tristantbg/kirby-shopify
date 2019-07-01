@@ -28,9 +28,14 @@ Add manually a page called `collections` with the template `shopify.collections`
 
 ## Make Shopify update your Kirby products list
 
-Set a Shopify webhook for "Product create", "Product update", "Product delete", "Collection create", "Collection update", "Collection delete" with value:
+Set a Shopify webhook for "Product create", "Product update", "Product delete" with value:
 ```
-https://your-kirby.com/kirby-shopify/api/cache/clear
+https://your-kirby.com/kirby-shopify/api/cache/products/clear
+```
+
+Set a Shopify webhook for "Collection create", "Collection update", "Collection delete" with value:
+```
+https://your-kirby.com/kirby-shopify/api/cache/collections/clear
 ```
 (The webhook is verified for security reasons: https://help.shopify.com/en/api/getting-started/webhooks#verify-webhook)
 Add the webhook HMAC signed key to your `.env` file under the `SHOPIFY_APP_SECRET` key

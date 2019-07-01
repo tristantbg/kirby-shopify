@@ -40,6 +40,36 @@ Kirby::plugin('tristanb/kirby-shopify', [
             return 'Cache cleared';
           }
         }
+      ],
+      [
+        'pattern' => 'kirby-shopify/api/cache/products/clear',
+        'method' => 'POST',
+        'action'  => function () {
+          $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+          $data = file_get_contents('php://input');
+          $verified = \KirbyShopify\App::verifyWebhook($data, $hmac_header);
+
+          if ($verified) {
+            \KirbyShopify\App::clearProductsCache();
+            \KirbyShopify\App::clearKirbyCache();
+            return 'Cache cleared';
+          }
+        }
+      ],
+      [
+        'pattern' => 'kirby-shopify/api/cache/collections/clear',
+        'method' => 'POST',
+        'action'  => function () {
+          $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+          $data = file_get_contents('php://input');
+          $verified = \KirbyShopify\App::verifyWebhook($data, $hmac_header);
+
+          if ($verified) {
+            \KirbyShopify\App::clearCollectionsCache();
+            \KirbyShopify\App::clearKirbyCache();
+            return 'Cache cleared';
+          }
+        }
       ]
     ]
 ]);
