@@ -1,0 +1,35 @@
+title: Collection
+options:
+  delete: false
+  changeTitle: false
+  changeTemplate: false
+  changeSlug: false
+  changeStatus: false
+sections:
+  shopify:
+    type: fields
+    fields:
+      shopifyTitle:
+        label: Title
+        type: text
+        disabled: true
+        width: 2/4
+      shopifyID:
+        label: ID
+        type: text
+        disabled: true
+        width: 1/4
+      shopifyHandle:
+        label: Handle
+        type: text
+        disabled: true
+        width: 1/4
+      shopifyFeaturedImage:
+        label: Featured
+        type: url
+        disabled: true
+        width: 1/2
+      shopifyDescriptionHTML:
+        label: Description
+        type: textarea
+        disabled: true

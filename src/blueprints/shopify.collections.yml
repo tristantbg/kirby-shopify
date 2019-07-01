@@ -1,0 +1,11 @@
+title: Collections
+options:
+  delete: false
+  changeTemplate: false
+  changeStatus: true
+sections:
+  collections:
+    headline: Collections
+    type: pages
+    info: "{{ page.handle }}"
+    template: shopify.collection

@@ -52,13 +52,13 @@ class App
       }
 
       $products = [];
-      $productCount = self::$shopify->Product->count(['published_status' => 'published']);
+      $productsCount = self::$shopify->Product->count(['published_status' => 'published']);
 
-      if ($productCount > 0) {
+      if ($productsCount > 0) {
 
         $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published']);
 
-        while (count($products) < $productCount) {
+        while (count($products) < $productsCount) {
           $lastItem = array_values(array_slice($products, -1))[0];
           $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
           foreach ($nextProducts as $key => $product) {
@@ -80,6 +80,34 @@ class App
         }
 
         return $id ? self::$shopify->Product($id)->get() : null;
+
+    }
+
+    public static function getCollections()
+    {
+
+      if (!self::$shopify) {
+          \KirbyShopify\App::init();
+      }
+
+      $collections = [];
+      $collectionsCount = self::$shopify->CustomCollection->count(['published_status' => 'published']);
+
+      if ($collectionsCount > 0) {
+
+        $collections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published']);
+
+        while (count($collections) < $collectionsCount) {
+          $lastItem = array_values(array_slice($collections, -1))[0];
+          $nextCollections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
+          foreach ($nextCollections as $key => $collection) {
+            $collections[] = $collection;
+          }
+        }
+
+      }
+
+      return $collections;
 
     }
 

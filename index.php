@@ -6,6 +6,8 @@
 
 @include_once __DIR__ . '/src/models/shopify.products.php';
 @include_once __DIR__ . '/src/models/shopify.product.php';
+@include_once __DIR__ . '/src/models/shopify.collections.php';
+@include_once __DIR__ . '/src/models/shopify.collection.php';
 
 Kirby::plugin('tristanb/kirby-shopify', [
     'options' => [
@@ -14,10 +16,14 @@ Kirby::plugin('tristanb/kirby-shopify', [
     'pageModels' => [
         'shopify.products' => 'ShopifyProductsPage',
         'shopify.product' => 'ShopifyProductPage',
+        'shopify.collections' => 'ShopifyCollectionsPage',
+        'shopify.collection' => 'ShopifyCollectionPage',
     ],
     'blueprints' => [
         'pages/shopify.products' => __DIR__ . '/src/blueprints/shopify.products.yml',
-        'pages/shopify.product' => __DIR__ . '/src/blueprints/shopify.product.yml'
+        'pages/shopify.product' => __DIR__ . '/src/blueprints/shopify.product.yml',
+        'pages/shopify.collections' => __DIR__ . '/src/blueprints/shopify.collections.yml',
+        'pages/shopify.collection' => __DIR__ . '/src/blueprints/shopify.collection.yml'
     ],
     'routes' => [
       [
