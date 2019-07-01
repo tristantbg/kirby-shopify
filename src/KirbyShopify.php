@@ -86,8 +86,8 @@ class App
     public static function verifyWebhook($data, $hmac_header)
     {
 
-        if ($_ENV['API_SECRET']) {
-          $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $_ENV['API_SECRET'], true));
+        if ($_ENV['SHOPIFY_APP_SECRET']) {
+          $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $_ENV['SHOPIFY_APP_SECRET'], true));
           return hash_equals($hmac_header, $calculated_hmac);
         }
 
