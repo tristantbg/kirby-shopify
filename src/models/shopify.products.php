@@ -9,7 +9,6 @@ class ShopifyProductsPage extends Page
     {
         $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
         $products        = $shopifyApiCache->get('products');
-        $kirbyProducts   = site()->index()->filterBy('intendedTemplate', 'shopify.product');
 
         if ($products === null) {
             $products = \KirbyShopify\App::getProducts();

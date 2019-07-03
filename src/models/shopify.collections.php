@@ -9,7 +9,6 @@ class ShopifyCollectionsPage extends Page
     {
         $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
         $collections        = $shopifyApiCache->get('collections');
-        $kirbyCollections   = site()->index()->filterBy('intendedTemplate', 'shopify.collection');
 
         if ($collections === null) {
             $collections = \KirbyShopify\App::getCollections();
