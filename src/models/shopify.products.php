@@ -7,14 +7,8 @@ class ShopifyProductsPage extends Page
 {
     public function children()
     {
-        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
-        $products        = $shopifyApiCache->get('products');
 
-        if ($products === null) {
-            $products = \KirbyShopify\App::getProducts();
-            $shopifyApiCache->set('products', $products);
-        }
-
+        $products = \KirbyShopify\App::getProducts();
         $pages = [];
 
         foreach ($products as $key => $product) {

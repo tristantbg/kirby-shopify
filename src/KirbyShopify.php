@@ -64,28 +64,34 @@ class App
     public static function getProducts()
     {
 
-      if (!self::$shopify) {
-          \KirbyShopify\App::init();
-      }
-
-      $products = [];
-      $productsCount = self::$shopify->Product->count(['published_status' => 'published']);
-
-      if ($productsCount > 0) {
-
-        $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published']);
-
-        while (count($products) < $productsCount) {
-          $lastItem = array_values(array_slice($products, -1))[0];
-          $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
-          foreach ($nextProducts as $key => $product) {
-            $products[] = $product;
-          }
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
         }
 
-      }
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $products        = $shopifyApiCache->get('products');
 
-      return $products;
+        if ($products === null) {
+            $products      = [];
+            $productsCount = self::$shopify->Product->count(['published_status' => 'published']);
+
+            if ($productsCount > 0) {
+
+                $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published']);
+
+                while (count($products) < $productsCount) {
+                    $lastItem     = array_values(array_slice($products, -1))[0];
+                    $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
+                    foreach ($nextProducts as $key => $product) {
+                        $products[] = $product;
+                    }
+                }
+
+            }
+            $shopifyApiCache->set('products', $products);
+        }
+
+        return $products;
 
     }
 
@@ -103,28 +109,34 @@ class App
     public static function getCollections()
     {
 
-      if (!self::$shopify) {
-          \KirbyShopify\App::init();
-      }
-
-      $collections = [];
-      $collectionsCount = self::$shopify->CustomCollection->count(['published_status' => 'published']);
-
-      if ($collectionsCount > 0) {
-
-        $collections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published']);
-
-        while (count($collections) < $collectionsCount) {
-          $lastItem = array_values(array_slice($collections, -1))[0];
-          $nextCollections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
-          foreach ($nextCollections as $key => $collection) {
-            $collections[] = $collection;
-          }
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
         }
 
-      }
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $collections     = $shopifyApiCache->get('collections');
 
-      return $collections;
+        if ($collections === null) {
+            $collections      = [];
+            $collectionsCount = self::$shopify->CustomCollection->count(['published_status' => 'published']);
+
+            if ($collectionsCount > 0) {
+
+                $collections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published']);
+
+                while (count($collections) < $collectionsCount) {
+                    $lastItem        = array_values(array_slice($collections, -1))[0];
+                    $nextCollections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
+                    foreach ($nextCollections as $key => $collection) {
+                        $collections[] = $collection;
+                    }
+                }
+
+            }
+            $shopifyApiCache->set('collections', $collections);
+        }
+
+        return $collections;
 
     }
 
@@ -132,8 +144,8 @@ class App
     {
 
         if ($_ENV['SHOPIFY_APP_SECRET']) {
-          $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $_ENV['SHOPIFY_APP_SECRET'], true));
-          return hash_equals($hmac_header, $calculated_hmac);
+            $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $_ENV['SHOPIFY_APP_SECRET'], true));
+            return hash_equals($hmac_header, $calculated_hmac);
         }
 
     }

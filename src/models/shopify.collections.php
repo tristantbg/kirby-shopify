@@ -7,14 +7,7 @@ class ShopifyCollectionsPage extends Page
 {
     public function children()
     {
-        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
-        $collections        = $shopifyApiCache->get('collections');
-
-        if ($collections === null) {
-            $collections = \KirbyShopify\App::getCollections();
-            $shopifyApiCache->set('collections', $collections);
-        }
-
+        $collections = \KirbyShopify\App::getCollections();
         $pages = [];
 
         foreach ($collections as $key => $collection) {
