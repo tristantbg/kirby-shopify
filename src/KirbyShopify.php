@@ -14,6 +14,7 @@ class App
 {
     private static $config  = [];
     private static $shopify = null;
+    public static $productsPage = null;
 
     public static function init()
     {
@@ -25,6 +26,7 @@ class App
         ];
 
         self::$shopify = new \PHPShopify\ShopifySDK(self::$config);
+        self::$productsPage = site()->pages()->filterBy('intendedTemplate', 'shopify.products')->first();
 
     }
 

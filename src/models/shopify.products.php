@@ -9,12 +9,13 @@ class ShopifyProductsPage extends Page
     {
 
         $products = \KirbyShopify\App::getProducts();
+        $productsPage = \KirbyShopify\App::$productsPage;
         $pages = [];
 
         foreach ($products as $key => $product) {
-
-            $kirbyProductRoot = page('products')->root() . '/' . Str::slug($product['handle']) . '/shopify.product.txt';
+            $kirbyProductRoot = $productsPage->root() . '/' . Str::slug($product['handle']) . '/shopify.product.txt';
             $kirbyProduct     = F::exists($kirbyProductRoot) ? new \Kirby\Toolkit\Collection(\Kirby\Data\Data::read($kirbyProductRoot)) : false;
+            if($kirbyProduct) $kirbyProduct = $kirbyProduct->toArray();
 
             $shopifyProduct = [
                 'title'                  => $product['title'],
@@ -31,6 +32,12 @@ class ShopifyProductsPage extends Page
                 'shopifyVariants'        => \Kirby\Data\Yaml::encode($product['variants']),
             ];
 
+            if ($kirbyProduct) {
+              foreach ($shopifyProduct as $k => $value) {
+                unset($kirbyProduct[strtolower($k)]);
+              }
+            }
+
             $pages[] = [
                 'slug'     => Str::slug($product['handle']),
                 'num'      => $key+1,
@@ -39,7 +46,7 @@ class ShopifyProductsPage extends Page
                 'content'  =>
                 $kirbyProduct
                 ?
-                array_merge($kirbyProduct->toArray(), $shopifyProduct)
+                ($shopifyProduct + $kirbyProduct)
                 :
                 $shopifyProduct,
             ];
