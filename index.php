@@ -37,9 +37,9 @@ Kirby::plugin('tristanb/kirby-shopify', [
           if ($verified) {
             \KirbyShopify\App::clearCache();
             \KirbyShopify\App::clearKirbyCache();
-            return Response::json(["status" => "success", "code" => 200, "message" => "Cache cleared");
+            return Response::json(["status" => "success", "code" => 200, "message" => "Cache cleared"]);
           } else {
-            return Response::json(["status" => "success", "code" => 200, "message" => "Identication failed");
+            return Response::json(["status" => "success", "code" => 200, "message" => "Identication failed"]);
           }
         }
       ],
@@ -54,9 +54,9 @@ Kirby::plugin('tristanb/kirby-shopify', [
           if ($verified) {
             \KirbyShopify\App::clearProductsCache();
             \KirbyShopify\App::clearKirbyCache();
-            return Response::json(["status" => "success", "code" => 200, "message" => "Cache cleared");
+            return Response::json(["status" => "success", "code" => 200, "message" => "Cache cleared"]);
           } else {
-            return Response::json(["status" => "success", "code" => 200, "message" => "Identication failed");
+            return Response::json(["status" => "success", "code" => 200, "message" => "Identication failed"]);
           }
         }
       ],
@@ -71,9 +71,9 @@ Kirby::plugin('tristanb/kirby-shopify', [
           if ($verified) {
             \KirbyShopify\App::clearCollectionsCache();
             \KirbyShopify\App::clearKirbyCache();
-            return Response::json(["status" => "success", "code" => 200, "message" => "Cache cleared");
+            return Response::json(["status" => "success", "code" => 200, "message" => "Cache cleared"]);
           } else {
-            return Response::json(["status" => "success", "code" => 200, "message" => "Identication failed");
+            return Response::json(["status" => "success", "code" => 200, "message" => "Identication failed"]);
           }
         }
       ]
