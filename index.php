@@ -40,7 +40,7 @@ Kirby::plugin('tristanb/kirby-shopify', [
         'pages/shopify.collection' => __DIR__ . '/src/blueprints/shopify.collection.yml'
     ],
     'fieldMethods' => [
-        'img_url' => function ($field, (string) $size = '') {
+        'img_url' => function ($field, string $size = '') {
             return preg_replace('/.(jpg|jpeg|png|bmp|gif)/', '_'.$size.'.$1', $field);
         }
     ],
