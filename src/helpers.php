@@ -1,5 +1,2 @@
 <?php
 
-// function ok() {
-
-// }

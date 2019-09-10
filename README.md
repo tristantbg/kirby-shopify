@@ -166,6 +166,14 @@ export default Shop;
 <?php endforeach ?>
 ```
 
+## Resize thumbnails
+
+You can resize thumbnails directly from Shopify CDN using this field method and the Shopify `img_url` attribute.
+https://help.shopify.com/en/themes/liquid/filters/url-filters#img_url
+```
+<img src="<?= $page->shopifyImages()->toStructure()->first()->img_url('1000x1000') ?>" />
+```
+
 ## Options
 
 WIP
