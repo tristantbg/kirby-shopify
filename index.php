@@ -13,6 +13,20 @@ Kirby::plugin('tristanb/kirby-shopify', [
     'options' => [
       'cache.api' => true
     ],
+    'collections' => [
+      'kirby-shopify.productsPage' => function ($site) {
+        return $site->pages()->filterBy('intendedTemplate', 'shopify.products')->first();
+      },
+      'kirby-shopify.products' => function ($site) {
+        return collection('kirby-shopify.productsPage')->children();
+      },
+      'kirby-shopify.collectionsPage' => function ($site) {
+        return $site->pages()->filterBy('intendedTemplate', 'shopify.collections')->first();
+      },
+      'kirby-shopify.collections' => function ($site) {
+        return collection('kirby-shopify.collectionsPage')->children();
+      }
+    ],
     'pageModels' => [
         'shopify.products' => 'ShopifyProductsPage',
         'shopify.product' => 'ShopifyProductPage',

@@ -26,7 +26,7 @@ class App
         ];
 
         self::$shopify = new \PHPShopify\ShopifySDK(self::$config);
-        self::$productsPage = site()->pages()->filterBy('intendedTemplate', 'shopify.products')->first();
+        self::$productsPage = collection('kirby-shopify.productsPage');
 
     }
 
@@ -51,6 +51,9 @@ class App
     {
 
         $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        foreach (collection('kirby-shopify.collections') as $key => $c) {
+          $shopifyApiCache->set('collection-'.$c->shopifyID(), null);
+        }
         $shopifyApiCache->set('collections', null);
 
     }
