@@ -81,6 +81,7 @@ class ComposerStaticInite4673e38b8d4402e7a200a551b4faac0
         'PHPShopify\\CustomerSavedSearch' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/CustomerSavedSearch.php',
         'PHPShopify\\Discount' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Discount.php',
         'PHPShopify\\DiscountCode' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/DiscountCode.php',
+        'PHPShopify\\DraftOrder' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/DraftOrder.php',
         'PHPShopify\\Event' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Event.php',
         'PHPShopify\\Exception\\ApiException' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Exception/ApiException.php',
         'PHPShopify\\Exception\\CurlException' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Exception/CurlException.php',

@@ -97,6 +97,40 @@ class App
 
     }
 
+    public static function getProductsFromCollection($collectionId)
+    {
+
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
+        }
+
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $products        = $shopifyApiCache->get('collection-'.$collectionId);
+
+        if ($products === null) {
+            $products      = [];
+            $productsCount = self::$shopify->Product->count(['published_status' => 'published', 'collection_id' => $collectionId]);
+
+            if ($productsCount > 0) {
+
+                $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'collection_id' => $collectionId]);
+
+                while (count($products) < $productsCount) {
+                    $lastItem     = array_values(array_slice($products, -1))[0];
+                    $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id'], 'collection_id' => $collectionId]);
+                    foreach ($nextProducts as $key => $product) {
+                        $products[] = $product;
+                    }
+                }
+
+            }
+            $shopifyApiCache->set('collection-'.$collectionId, $products);
+        }
+
+        return $products;
+
+    }
+
     public static function getProduct($id)
     {
 

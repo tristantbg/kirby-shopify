@@ -33,3 +33,8 @@ sections:
         label: Description
         type: textarea
         disabled: true
+  products:
+    headline: Products
+    type: pages
+    info: "{{ page.handle }}"
+    template: shopify.product

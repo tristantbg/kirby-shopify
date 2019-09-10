@@ -38,6 +38,7 @@ return array(
     'PHPShopify\\CustomerSavedSearch' => $vendorDir . '/phpclassic/php-shopify/lib/CustomerSavedSearch.php',
     'PHPShopify\\Discount' => $vendorDir . '/phpclassic/php-shopify/lib/Discount.php',
     'PHPShopify\\DiscountCode' => $vendorDir . '/phpclassic/php-shopify/lib/DiscountCode.php',
+    'PHPShopify\\DraftOrder' => $vendorDir . '/phpclassic/php-shopify/lib/DraftOrder.php',
     'PHPShopify\\Event' => $vendorDir . '/phpclassic/php-shopify/lib/Event.php',
     'PHPShopify\\Exception\\ApiException' => $vendorDir . '/phpclassic/php-shopify/lib/Exception/ApiException.php',
     'PHPShopify\\Exception\\CurlException' => $vendorDir . '/phpclassic/php-shopify/lib/Exception/CurlException.php',
