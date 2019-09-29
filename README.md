@@ -174,6 +174,10 @@ https://help.shopify.com/en/themes/liquid/filters/url-filters#img_url
 <img src="<?= $page->shopifyImages()->toStructure()->first()->img_url('1000x1000') ?>" />
 ```
 
+## The toProduct() method
+
+When you try to access a product through a Collection, you need to use the `$productInCollection->toProduct()` method in order to get the original product page which is in the `page('products')`. Because you only want one product page with custom fields.
+
 ## Options
 
 WIP

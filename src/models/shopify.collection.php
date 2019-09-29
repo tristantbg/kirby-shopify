@@ -9,23 +9,24 @@ class ShopifyCollectionPage extends Page
         $pages = [];
 
         foreach ($products as $key => $product) {
-            $kirbyProductRoot = $productsPage->root() . '/' . Str::slug($product['handle']) . '/shopify.product.txt';
-            $kirbyProduct     = F::exists($kirbyProductRoot) ? new \Kirby\Toolkit\Collection(\Kirby\Data\Data::read($kirbyProductRoot)) : false;
-            if($kirbyProduct) $kirbyProduct = $kirbyProduct->toArray();
+            $kirbyProduct = null;
+            // $kirbyProductRoot = $productsPage->root() . '/' . Str::slug($product['handle']) . '/shopify.product.txt';
+            // $kirbyProduct     = F::exists($kirbyProductRoot) ? new \Kirby\Toolkit\Collection(\Kirby\Data\Data::read($kirbyProductRoot)) : false;
+            // if($kirbyProduct) $kirbyProduct = $kirbyProduct->toArray();
 
             $shopifyProduct = [
-                'title'                  => $product['title'],
-                'shopifyTitle'           => $product['title'],
+                'title'                  => $product['handle'],
+                // 'shopifyTitle'           => $product['title'],
                 'shopifyID'              => $product['id'],
-                'shopifyHandle'          => $product['handle'],
-                'shopifyFeaturedImage'   => count($product['images']) > 0 ? $product['images'][0]['src'] : '',
-                'shopifyImages'          => \Kirby\Data\Yaml::encode($product['images']),
-                'shopifyDescriptionHTML' => $product['body_html'],
-                'shopifyPrice'           => count($product['variants']) > 0 ? $product['variants'][0]['price'] : '',
-                'shopifyCompareAtPrice'  => count($product['variants']) > 0 ? $product['variants'][0]['compare_at_price'] : '',
-                'shopifyType'            => $product['product_type'],
-                'shopifyTags'            => $product['tags'],
-                'shopifyVariants'        => \Kirby\Data\Yaml::encode($product['variants']),
+                // 'shopifyHandle'          => $product['handle'],
+                // 'shopifyFeaturedImage'   => count($product['images']) > 0 ? $product['images'][0]['src'] : '',
+                // 'shopifyImages'          => \Kirby\Data\Yaml::encode($product['images']),
+                // 'shopifyDescriptionHTML' => $product['body_html'],
+                // 'shopifyPrice'           => count($product['variants']) > 0 ? $product['variants'][0]['price'] : '',
+                // 'shopifyCompareAtPrice'  => count($product['variants']) > 0 ? $product['variants'][0]['compare_at_price'] : '',
+                // 'shopifyType'            => $product['product_type'],
+                // 'shopifyTags'            => $product['tags'],
+                // 'shopifyVariants'        => \Kirby\Data\Yaml::encode($product['variants']),
             ];
 
             if ($kirbyProduct) {

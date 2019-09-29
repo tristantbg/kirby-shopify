@@ -49,6 +49,11 @@ Kirby::plugin('tristanb/kirby-shopify', [
             return preg_replace('/.(jpg|jpeg|png|bmp|gif)/', '_'.$size.'.$1', $src);
         }
     ],
+    'pageMethods' => [
+        'toProduct' => function () {
+            return collection('kirby-shopify.products')->findBy('shopifyID', $this->shopifyID()->value());
+        }
+    ],
     'routes' => [
       [
         'pattern' => 'kirby-shopify/api/cache/clear',
