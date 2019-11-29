@@ -30,7 +30,7 @@ sections:
         disabled: true
         width: 1/4
       shopifyCompareAtPrice:
-        label: Price
+        label: Compare At Price
         type: text
         disabled: true
         width: 1/4
