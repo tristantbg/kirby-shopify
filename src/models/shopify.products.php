@@ -13,7 +13,7 @@ class ShopifyProductsPage extends Page
         $pages = [];
 
         foreach ($products as $key => $product) {
-            $kirbyProductRoot = $productsPage->root() . '/' . Str::slug($product['handle']) . '/shopify.product.txt';
+            $kirbyProductRoot = $productsPage->root() . '/' . ($key+1) . '_' . Str::slug($product['handle']) . '/shopify.product.txt';
             $kirbyProduct     = F::exists($kirbyProductRoot) ? new \Kirby\Toolkit\Collection(\Kirby\Data\Data::read($kirbyProductRoot)) : false;
             if($kirbyProduct) $kirbyProduct = $kirbyProduct->toArray();
 
