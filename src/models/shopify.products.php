@@ -18,18 +18,20 @@ class ShopifyProductsPage extends Page
             if($kirbyProduct) $kirbyProduct = $kirbyProduct->toArray();
 
             $shopifyProduct = [
-                'title'                  => $product['title'],
-                'shopifyTitle'           => $product['title'],
-                'shopifyID'              => $product['id'],
-                'shopifyHandle'          => $product['handle'],
-                'shopifyFeaturedImage'   => count($product['images']) > 0 ? $product['images'][0]['src'] : '',
-                'shopifyImages'          => \Kirby\Data\Yaml::encode($product['images']),
-                'shopifyDescriptionHTML' => $product['body_html'],
-                'shopifyPrice'           => count($product['variants']) > 0 ? $product['variants'][0]['price'] : '',
-                'shopifyCompareAtPrice'  => count($product['variants']) > 0 ? $product['variants'][0]['compare_at_price'] : '',
-                'shopifyType'            => $product['product_type'],
-                'shopifyTags'            => $product['tags'],
-                'shopifyVariants'        => \Kirby\Data\Yaml::encode($product['variants']),
+                'title'                       => $product['title'],
+                'shopifyTitle'                => $product['title'],
+                'shopifyID'                   => $product['id'],
+                'shopifyHandle'               => $product['handle'],
+                'shopifyFeaturedImage'        => count($product['images']) > 0 ? $product['images'][0]['src'] : '',
+                'shopifyImages'               => \Kirby\Data\Yaml::encode($product['images']),
+                'shopifyDescriptionHTML'      => $product['body_html'],
+                'shopifyGlobalTitleTag'       => $product['metafields_global_title_tag'],
+                'shopifyGlobalDescriptionTag' => $product['metafields_global_description_tag'],
+                'shopifyPrice'                => count($product['variants']) > 0 ? $product['variants'][0]['price'] : '',
+                'shopifyCompareAtPrice'       => count($product['variants']) > 0 ? $product['variants'][0]['compare_at_price'] : '',
+                'shopifyType'                 => $product['product_type'],
+                'shopifyTags'                 => $product['tags'],
+                'shopifyVariants'             => \Kirby\Data\Yaml::encode($product['variants']),
             ];
 
             if ($kirbyProduct) {
