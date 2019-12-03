@@ -25,8 +25,6 @@ class ShopifyProductsPage extends Page
                 'shopifyFeaturedImage'        => count($product['images']) > 0 ? $product['images'][0]['src'] : '',
                 'shopifyImages'               => \Kirby\Data\Yaml::encode($product['images']),
                 'shopifyDescriptionHTML'      => $product['body_html'],
-                'shopifyGlobalTitleTag'       => $product['metafields_global_title_tag'],
-                'shopifyGlobalDescriptionTag' => $product['metafields_global_description_tag'],
                 'shopifyPrice'                => count($product['variants']) > 0 ? $product['variants'][0]['price'] : '',
                 'shopifyCompareAtPrice'       => count($product['variants']) > 0 ? $product['variants'][0]['compare_at_price'] : '',
                 'shopifyType'                 => $product['product_type'],
