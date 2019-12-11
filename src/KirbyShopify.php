@@ -156,6 +156,27 @@ class App
         $collections     = $shopifyApiCache->get('collections');
 
         if ($collections === null) {
+            $smartCollections = self::getSmartCollections();
+            $customCollections = self::getCustomCollections();
+            $collections      = array_merge($smartCollections, $customCollections);
+            $shopifyApiCache->set('collections', $collections);
+        }
+
+        return $collections;
+
+    }
+
+    public static function getCustomCollections()
+    {
+
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
+        }
+
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $collections     = $shopifyApiCache->get('collections');
+
+        if ($collections === null) {
             $collections      = [];
             $collectionsCount = self::$shopify->CustomCollection->count(['published_status' => 'published']);
 
@@ -166,6 +187,40 @@ class App
                 while (count($collections) < $collectionsCount) {
                     $lastItem        = array_values(array_slice($collections, -1))[0];
                     $nextCollections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
+                    foreach ($nextCollections as $key => $collection) {
+                        $collections[] = $collection;
+                    }
+                }
+
+            }
+            $shopifyApiCache->set('collections', $collections);
+        }
+
+        return $collections;
+
+    }
+
+    public static function getSmartCollections()
+    {
+
+        if (!self::$shopify) {
+            \KirbyShopify\App::init();
+        }
+
+        $shopifyApiCache = kirby()->cache('tristanb.kirby-shopify.api');
+        $collections     = $shopifyApiCache->get('collections');
+
+        if ($collections === null) {
+            $collections      = [];
+            $collectionsCount = self::$shopify->SmartCollection->count(['published_status' => 'published']);
+
+            if ($collectionsCount > 0) {
+
+                $collections = self::$shopify->SmartCollection->get(['limit' => 250, 'published_status' => 'published']);
+
+                while (count($collections) < $collectionsCount) {
+                    $lastItem        = array_values(array_slice($collections, -1))[0];
+                    $nextCollections = self::$shopify->SmartCollection->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
                     foreach ($nextCollections as $key => $collection) {
                         $collections[] = $collection;
                     }
