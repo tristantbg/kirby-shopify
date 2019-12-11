@@ -50,6 +50,13 @@ Kirby::plugin('tristanb/kirby-shopify', [
         }
     ],
     'pageMethods' => [
+        'inventory_quantity' => function () {
+            $inventory = 0;
+            foreach ($this->shopifyVariants()->toStructure() as $key => $variant) {
+              $inventory += $variant->inventory_quantity()->int();
+            }
+            return $inventory;
+        },
         'toProduct' => function () {
             return collection('kirby-shopify.products')->findBy('shopifyHandle', $this->shopifyHandle()->value());
         },
