@@ -23,6 +23,8 @@ class App
             'ApiKey'   => $_ENV['API_KEY'],
             'Password' => $_ENV['API_PASSWORD'],
             'ShopUrl'  => $_ENV['SHOP_URL'],
+            'AccessToken' => empty($_ENV['ACCESS_TOKEN']) ? null : $_ENV['ACCESS_TOKEN'],
+            'SharedSecret' => empty($_ENV['SHARED_SECRET']) ? null : $_ENV['SHARED_SECRET'],
         ];
 
         self::$shopify = new \PHPShopify\ShopifySDK(self::$config);

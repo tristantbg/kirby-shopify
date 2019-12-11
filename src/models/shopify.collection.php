@@ -4,7 +4,7 @@ class ShopifyCollectionPage extends Page
 {
     public function children()
     {
-        $products = \KirbyShopify\App::getProductsFromCollection($this->shopifyID()->value());
+        $products = \KirbyShopify\App::getProductsFromCollection($this->shopifyID()->value(), $this->shopifyHandle()->value());
         $productsPage = \KirbyShopify\App::$productsPage;
         $pages = [];
 
@@ -15,10 +15,10 @@ class ShopifyCollectionPage extends Page
             // if($kirbyProduct) $kirbyProduct = $kirbyProduct->toArray();
 
             $shopifyProduct = [
-                'title'                  => $product['handle'],
+                'title'                  => $product['title'],
                 // 'shopifyTitle'           => $product['title'],
                 'shopifyID'              => $product['id'],
-                // 'shopifyHandle'          => $product['handle'],
+                'shopifyHandle'          => $product['handle'],
                 // 'shopifyFeaturedImage'   => count($product['images']) > 0 ? $product['images'][0]['src'] : '',
                 // 'shopifyImages'          => \Kirby\Data\Yaml::encode($product['images']),
                 // 'shopifyDescriptionHTML' => $product['body_html'],

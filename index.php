@@ -51,7 +51,16 @@ Kirby::plugin('tristanb/kirby-shopify', [
     ],
     'pageMethods' => [
         'toProduct' => function () {
-            return collection('kirby-shopify.products')->findBy('shopifyID', $this->shopifyID()->value());
+            return collection('kirby-shopify.products')->findBy('shopifyHandle', $this->shopifyHandle()->value());
+        },
+        'toProducts' => function () {
+            $products = new Collection();
+            foreach ($this->children() as $key => $p) {
+              if ($p = $p->toProduct()) {
+                $products->add($p);
+              }
+            }
+            return $products;
         }
     ],
     'routes' => [
