@@ -26,7 +26,11 @@ sections:
         width: 1/4
       shopifyFeaturedImage:
         label: Featured
-        type: url
+        type: structure
+        fields:
+          src:
+            label: URL
+            type: url
         disabled: true
         width: 1/2
       shopifyDescriptionHTML:

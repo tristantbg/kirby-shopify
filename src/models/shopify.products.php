@@ -22,7 +22,7 @@ class ShopifyProductsPage extends Page
                 'shopifyTitle'                => $product['title'],
                 'shopifyID'                   => $product['id'],
                 'shopifyHandle'               => $product['handle'],
-                'shopifyFeaturedImage'        => count($product['images']) > 0 ? $product['images'][0]['src'] : '',
+                'shopifyFeaturedImage'        => count($product['images']) > 0 ? \Kirby\Data\Yaml::encode($product['images'][0]) : '',
                 'shopifyImages'               => \Kirby\Data\Yaml::encode($product['images']),
                 'shopifyDescriptionHTML'      => $product['body_html'],
                 'shopifyPrice'                => count($product['variants']) > 0 ? $product['variants'][0]['price'] : '',

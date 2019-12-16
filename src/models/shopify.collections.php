@@ -20,7 +20,7 @@ class ShopifyCollectionsPage extends Page
                 'shopifyTitle'           => $collection['title'],
                 'shopifyID'              => $collection['id'],
                 'shopifyHandle'          => $collection['handle'],
-                'shopifyFeaturedImage'   => !empty($collection['image']) ? $collection['image']['src'] : '',
+                'shopifyFeaturedImage'   => !empty($collection['image']) ? \Kirby\Data\Yaml::encode($collection['image']) : '',
                 'shopifyDescriptionHTML' => $collection['body_html']
             ];
 
