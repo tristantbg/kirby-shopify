@@ -211,7 +211,7 @@ class ShopifySDK
      * @var array
      */
     public static $config = array(
-        'ApiVersion' => '2019-10'
+        'ApiVersion' => '2020-04'
     );
 
     /**
@@ -310,7 +310,7 @@ class ShopifySDK
          * Reset config to it's initial values
          */
         self::$config = array(
-            'ApiVersion' => '2019-04'
+            'ApiVersion' => '2020-04'
         );
 
         foreach ($config as $key => $value) {
