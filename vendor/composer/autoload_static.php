@@ -70,6 +70,7 @@ class ComposerStaticInite4673e38b8d4402e7a200a551b4faac0
         'PHPShopify\\Blog' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Blog.php',
         'PHPShopify\\CarrierService' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/CarrierService.php',
         'PHPShopify\\Collect' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Collect.php',
+        'PHPShopify\\Collection' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Collection.php',
         'PHPShopify\\Comment' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Comment.php',
         'PHPShopify\\Country' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/Country.php',
         'PHPShopify\\CurlRequest' => __DIR__ . '/..' . '/phpclassic/php-shopify/lib/CurlRequest.php',

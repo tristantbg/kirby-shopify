@@ -27,6 +27,7 @@ return array(
     'PHPShopify\\Blog' => $vendorDir . '/phpclassic/php-shopify/lib/Blog.php',
     'PHPShopify\\CarrierService' => $vendorDir . '/phpclassic/php-shopify/lib/CarrierService.php',
     'PHPShopify\\Collect' => $vendorDir . '/phpclassic/php-shopify/lib/Collect.php',
+    'PHPShopify\\Collection' => $vendorDir . '/phpclassic/php-shopify/lib/Collection.php',
     'PHPShopify\\Comment' => $vendorDir . '/phpclassic/php-shopify/lib/Comment.php',
     'PHPShopify\\Country' => $vendorDir . '/phpclassic/php-shopify/lib/Country.php',
     'PHPShopify\\CurlRequest' => $vendorDir . '/phpclassic/php-shopify/lib/CurlRequest.php',
