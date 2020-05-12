@@ -5,6 +5,11 @@ use Kirby\Data\Yaml;
 
 class ShopifyProductsPage extends Page
 {
+    public function subpages()
+    {
+        return Pages::factory($this->inventory()['children'], $this);
+    }
+
     public function children()
     {
 
@@ -13,9 +18,12 @@ class ShopifyProductsPage extends Page
         $pages = [];
 
         foreach ($products as $key => $product) {
-            $kirbyProductRoot = $productsPage->root() . '/' . ($key+1) . '_' . Str::slug($product['handle']) . '/shopify.product.txt';
+            $slug = Str::slug($product['handle']);
+            $kirbyProductRoot = $productsPage->root() . '/' . $product['id'] . '_' . $slug . '/shopify.product.txt';
             $kirbyProduct     = F::exists($kirbyProductRoot) ? new \Kirby\Toolkit\Collection(\Kirby\Data\Data::read($kirbyProductRoot)) : false;
             if($kirbyProduct) $kirbyProduct = $kirbyProduct->toArray();
+            // $kirbyProduct = $this->subpages()->find($slug);
+            // $kirbyProduct = $kirbyProduct ? $kirbyProduct->toArray() : null;
 
             $shopifyProduct = [
                 'title'                       => $product['title'],
@@ -39,8 +47,8 @@ class ShopifyProductsPage extends Page
             }
 
             $pages[] = [
-                'slug'     => Str::slug($product['handle']),
-                'num'      => $key+1,
+                'slug'     => $slug,
+                'num'      => $product['id'],
                 'template' => 'shopify.product',
                 'model'    => 'shopify.product',
                 'content'  =>
