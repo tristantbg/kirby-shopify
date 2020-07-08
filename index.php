@@ -58,9 +58,10 @@ Kirby::plugin('tristanb/kirby-shopify', [
             return $inventory;
         },
         'isAvailable' => function () {
-            return $this->shopifyVariants()->toStructure()->filter(function($variant){
-              return $variant->inventory_quantity()->int() > 0;
-            })->count();
+            return $this->inventory_quantity() > 0;
+        },
+        'hasImages' => function () {
+            return $this->shopifyImages()->toStructure()->count() > 0;
         },
         'toProduct' => function () {
             return collection('kirby-shopify.products')->findBy('shopifyHandle', $this->shopifyHandle()->value());
