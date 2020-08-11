@@ -59,6 +59,9 @@ sections:
         label: Variants
         type: structure
         fields:
+          title:
+            label: Title
+            type: text
           price:
             label: Price
             type: text
