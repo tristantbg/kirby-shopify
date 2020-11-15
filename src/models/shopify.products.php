@@ -33,6 +33,7 @@ class ShopifyProductsPage extends Page
                 'shopifyUpdatedAt'            => $product['updated_at'],
                 'shopifyPublishedAt'          => $product['published_at'],
                 'shopifyHandle'               => $product['handle'],
+                'shopifyVendor'               => $product['vendor'],
                 'shopifyFeaturedImage'        => count($product['images']) > 0 ? \Kirby\Data\Yaml::encode([$product['images'][0]]) : '',
                 'shopifyImages'               => \Kirby\Data\Yaml::encode($product['images']),
                 'shopifyDescriptionHTML'      => $product['body_html'],
