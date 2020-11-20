@@ -11,7 +11,7 @@
       "<?= $productImages->first()->src() ?>"
     ],
   <?php endif ?>
-  "description": "<?= Escape::html(Str::unhtml($page->shopifyDescriptionHTML())) ?>",
+  "description": "<?= preg_replace('/\r|\n/','\n',trim(Escape::html(Str::unhtml($page->shopifyDescriptionHTML())))) ?>",
   "brand": {
     "@type": "Thing",
     "name": "<?= $page->shopifyVendor()->escape() ?>"
