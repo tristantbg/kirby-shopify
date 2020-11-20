@@ -1,3 +1,5 @@
+<?php $productImages = $page->shopifyImages()->toStructure() ?>
+
 <script type="application/ld+json">
 {
   "@context": "http://schema.org/",
