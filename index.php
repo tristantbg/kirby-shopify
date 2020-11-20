@@ -39,6 +39,9 @@ Kirby::plugin('tristanb/kirby-shopify', [
         'pages/shopify.collections' => __DIR__ . '/src/blueprints/shopify.collections.yml',
         'pages/shopify.collection' => __DIR__ . '/src/blueprints/shopify.collection.yml'
     ],
+    'snippets' => [
+        'kirby-shopify.product.structured-data' => __DIR__ . '/src/snippets/product.structured-data.php'
+    ],
     'fieldMethods' => [
         'img_url' => function ($field, string $size = '') {
             if (is_string($field)) {
