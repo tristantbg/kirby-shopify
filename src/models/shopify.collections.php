@@ -12,7 +12,8 @@ class ShopifyCollectionsPage extends Page
 
         foreach ($collections as $key => $collection) {
 
-            $kirbyCollectionRoot = page('collections')->root() . '/' . Str::slug($collection['handle']) . '/shopify.collection.txt';
+            $slug = Str::slug($collection['handle']);
+            $kirbyCollectionRoot = page('collections')->root() . '/' . $collection['id'] . '_' . $slug . '/shopify.collection.txt';
             $kirbyCollection     = F::exists($kirbyCollectionRoot) ? new \Kirby\Toolkit\Collection(\Kirby\Data\Data::read($kirbyCollectionRoot)) : false;
 
             $shopifyCollection = [
@@ -25,8 +26,8 @@ class ShopifyCollectionsPage extends Page
             ];
 
             $pages[] = [
-                'slug'     => Str::slug($collection['handle']),
-                'num'      => $key+1,
+                'slug'     => $slug,
+                'num'      => $collection['id'],
                 'template' => 'shopify.collection',
                 'model'    => 'shopify.collection',
                 'content'  =>
