@@ -18,6 +18,7 @@
   },
   <?php if ($page->shopifyVariants()->toStructure()->count()): ?>
     "offers": [
+      <?php $index = 1; ?>
       <?php foreach ($page->shopifyVariants()->toStructure() as $key => $variant): ?>
         {
           "@type" : "Offer",
@@ -42,7 +43,8 @@
                 }
               <?php endif ?>
           }
-        },
+        }<?= r($page->shopifyVariants()->toStructure()->count() != $index, ',') ?>
+        <?php $index++ ?>
       <?php endforeach ?>
     ]
   <?php endif ?>
