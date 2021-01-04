@@ -39,7 +39,7 @@
                     "unitCode": "<?= $variant->weight_unit() ?>",
                   <?php endif ?>
                   "value": "<?= $variant->weight().r($variant->weight_unit()->isNotEmpty(), ' '.$variant->weight_unit()) ?>"
-                },
+                }
               <?php endif ?>
           }
         },
