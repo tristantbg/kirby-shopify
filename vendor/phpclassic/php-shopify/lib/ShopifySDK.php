@@ -105,6 +105,7 @@ use PHPShopify\Exception\SdkException;
  * @property-read Shop $Shop
  * @property-read SmartCollection $SmartCollection
  * @property-read ShopifyPayment $ShopifyPayment
+ * @property-read TenderTransaction $TenderTransaction
  * @property-read Theme $Theme
  * @property-read User $User
  * @property-read Webhook $Webhook
@@ -146,7 +147,9 @@ use PHPShopify\Exception\SdkException;
  * @method ScriptTag ScriptTag(integer $id = null)
  * @method ShippingZone ShippingZone(integer $id = null)
  * @method Shop Shop(integer $id = null)
+ * @method ShopifyPayment ShopifyPayment()
  * @method SmartCollection SmartCollection(integer $id = null)
+ * @method TenderTransaction TenderTransaction()
  * @method Theme Theme(int $id = null)
  * @method User User(integer $id = null)
  * @method Webhook Webhook(integer $id = null)
@@ -198,6 +201,7 @@ class ShopifySDK
         'Shop',
         'SmartCollection',
         'ShopifyPayment',
+        'TenderTransaction',
         'Theme',
         'User',
         'Webhook',
@@ -235,16 +239,20 @@ class ShopifySDK
     protected $childResources = array(
         'Article'           => 'Blog',
         'Asset'             => 'Theme',
+        'Balance'           => 'ShopifyPayment',
         'CustomerAddress'   => 'Customer',
+        'Dispute'           => 'ShopifyPayment',
         'Fulfillment'       => 'Order',
         'FulfillmentEvent'  => 'Fulfillment',
         'OrderRisk'         => 'Order',
+        'Payouts'           => 'ShopifyPayment',
         'ProductImage'      => 'Product',
         'ProductVariant'    => 'Product',
         'DiscountCode'      => 'PriceRule',
         'Province'          => 'Country',
         'Refund'            => 'Order',
         'Transaction'       => 'Order',
+        'Transactions'      => 'Balance',
         'UsageCharge'       => 'RecurringApplicationCharge',
     );
 

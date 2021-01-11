@@ -80,15 +80,15 @@ class App
 
         if ($products === null) {
             $products      = [];
-            $productsCount = self::$shopify->Product->count(['published_status' => 'published']);
+            $productsCount = self::$shopify->Product->count(['published_status' => 'published', 'status' => 'active']);
 
             if ($productsCount > 0) {
 
-                $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published']);
+                $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active']);
 
                 while (count($products) < $productsCount) {
                     $lastItem     = array_values(array_slice($products, -1))[0];
-                    $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
+                    $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active', 'since_id' => $lastItem['id']]);
                     foreach ($nextProducts as $key => $product) {
                         $products[] = $product;
                     }
@@ -114,15 +114,15 @@ class App
 
         if ($products === null) {
             $products      = [];
-            $productsCount = self::$shopify->Product->count(['published_status' => 'published', 'collection_id' => $collectionId]);
+            $productsCount = self::$shopify->Product->count(['published_status' => 'published', 'status' => 'active', 'collection_id' => $collectionId]);
 
             if ($productsCount > 0) {
 
-                $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'collection_id' => $collectionId]);
+                $products = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active', 'collection_id' => $collectionId]);
 
                 while (count($products) < $productsCount) {
                     $lastItem     = array_values(array_slice($products, -1))[0];
-                    $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id'], 'collection_id' => $collectionId]);
+                    $nextProducts = self::$shopify->Product->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active', 'since_id' => $lastItem['id'], 'collection_id' => $collectionId]);
                     foreach ($nextProducts as $key => $product) {
                         $products[] = $product;
                     }
@@ -180,15 +180,15 @@ class App
 
         if ($collections === null) {
             $collections      = [];
-            $collectionsCount = self::$shopify->CustomCollection->count(['published_status' => 'published']);
+            $collectionsCount = self::$shopify->CustomCollection->count(['published_status' => 'published', 'status' => 'active']);
 
             if ($collectionsCount > 0) {
 
-                $collections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published']);
+                $collections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active']);
 
                 while (count($collections) < $collectionsCount) {
                     $lastItem        = array_values(array_slice($collections, -1))[0];
-                    $nextCollections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
+                    $nextCollections = self::$shopify->CustomCollection->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active', 'since_id' => $lastItem['id']]);
                     foreach ($nextCollections as $key => $collection) {
                         $collections[] = $collection;
                     }
@@ -214,15 +214,15 @@ class App
 
         if ($collections === null) {
             $collections      = [];
-            $collectionsCount = self::$shopify->SmartCollection->count(['published_status' => 'published']);
+            $collectionsCount = self::$shopify->SmartCollection->count(['published_status' => 'published', 'status' => 'active']);
 
             if ($collectionsCount > 0) {
 
-                $collections = self::$shopify->SmartCollection->get(['limit' => 250, 'published_status' => 'published']);
+                $collections = self::$shopify->SmartCollection->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active']);
 
                 while (count($collections) < $collectionsCount) {
                     $lastItem        = array_values(array_slice($collections, -1))[0];
-                    $nextCollections = self::$shopify->SmartCollection->get(['limit' => 250, 'published_status' => 'published', 'since_id' => $lastItem['id']]);
+                    $nextCollections = self::$shopify->SmartCollection->get(['limit' => 250, 'published_status' => 'published', 'status' => 'active', 'since_id' => $lastItem['id']]);
                     foreach ($nextCollections as $key => $collection) {
                         $collections[] = $collection;
                     }
