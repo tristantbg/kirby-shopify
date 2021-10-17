@@ -26,10 +26,12 @@ Set your `.env` file inside the plugin folder using the `.env.example` one with 
 Add manually a page called `products` with the template `shopify.products` in the content folder. (like shown in "example")
 Add manually a page called `collections` with the template `shopify.collections` in the content folder. (like shown in "example")
 
+```
 API_KEY= 1
 API_PASSWORD= 2
 SHOPIFY_APP_SECRET= 3
 ACCESS_TOKEN= 4
+```
 
 ![kirby-shopify screen-1](https://user-images.githubusercontent.com/4832038/136786260-6f976c5e-ecd9-4eca-b6a8-c3ac81b31b59.png)
 <img width="930" alt="kirby-shopify screen-2" src="https://user-images.githubusercontent.com/4832038/136786321-982497fb-98bc-41c5-af0e-53bbd007477c.png">
