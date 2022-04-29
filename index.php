@@ -49,7 +49,7 @@ Kirby::plugin('tristanb/kirby-shopify', [
             } elseif ($field->src()->isNotEmpty()) {
               $src = $field->src();
             }
-            return preg_replace('/.(jpg|jpeg|png|bmp|gif)/', '_'.$size.'.$1', $src);
+            return preg_replace('/\.(jpg|jpeg|png|bmp|gif)/', '_'.$size.'.$1', $src);
         }
     ],
     'pageMethods' => [
