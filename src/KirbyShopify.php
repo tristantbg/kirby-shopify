@@ -1,9 +1,8 @@
 <?php
+namespace KirbyShopify;
 
 use \Dotenv\Dotenv;
 use \PHPShopify\ShopifySDK;
-
-namespace KirbyShopify;
 
 // require 'helpers.php';
 
