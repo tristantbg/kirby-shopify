@@ -3,6 +3,7 @@
     "description": "Kirby Shopify",
     "type": "kirby-plugin",
     "license": "MIT",
+    "version": "1.3.7",
     "authors": [
         {
             "name": "Tristan Bagot",
