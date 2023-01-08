@@ -1,6 +1,6 @@
 {
     "name": "tristantbg/kirby-shopify",
-    "description": "Kirby Shopify",
+    "description": "Display products on your own site and integrate the checkout process with your Shopify shop",
     "type": "kirby-plugin",
     "license": "MIT",
     "version": "1.3.7",
