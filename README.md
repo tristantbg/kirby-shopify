@@ -49,6 +49,8 @@ Set a Shopify webhook for "Collection create", "Collection update", "Collection 
 ```
 https://your-kirby.com/kirby-shopify/api/cache/collections/clear
 ```
+At the end of https://xxx.myshopify.com/admin/settings/notifications
+
 (The webhook is verified for security reasons: https://help.shopify.com/en/api/getting-started/webhooks#verify-webhook)
 Add the webhook HMAC signed key to your `.env` file under the `SHOPIFY_APP_SECRET` key
 
