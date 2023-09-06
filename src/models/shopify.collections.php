@@ -5,7 +5,7 @@ use Kirby\Data\Yaml;
 
 class ShopifyCollectionsPage extends Page
 {
-    public function children()
+    public function children(): Pages
     {
         $collections = \KirbyShopify\App::getCollections();
         $pages = [];
