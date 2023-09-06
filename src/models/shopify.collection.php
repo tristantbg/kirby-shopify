@@ -2,7 +2,7 @@
 
 class ShopifyCollectionPage extends Page
 {
-    public function children()
+    public function children(): Pages
     {
         $products = \KirbyShopify\App::getProductsFromCollection($this->shopifyID()->value(), $this->shopifyHandle()->value());
         $productsPage = \KirbyShopify\App::$productsPage;
