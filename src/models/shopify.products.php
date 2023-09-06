@@ -10,7 +10,7 @@ class ShopifyProductsPage extends Page
         return Pages::factory($this->inventory()['children'], $this);
     }
 
-    public function children()
+    public function children(): Pages
     {
 
         $products = \KirbyShopify\App::getProducts();
