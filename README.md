@@ -1,6 +1,9 @@
 # Kirby 3 Shopify Plugin
 
-****
+> **⚠️ DEPRECATION WARNING**  
+> This plugin is no longer maintained. Please use [Kirby Kart](https://kart.bnomei.com/docs/providers/shopify) by [@bnomei](https://github.com/bnomei/kirby-kart) instead, which provides Shopify support with active maintenance and more features.
+
+---
 
 ## Installation
 
@@ -37,18 +40,20 @@ ACCESS_TOKEN= 4 (Useless)
 
 ![kirby-shopify screen-3](https://user-images.githubusercontent.com/4832038/136786285-67ada112-52e8-45d5-b9ff-9724a8aca172.png)
 
-
 ## Make Shopify update your Kirby products list
 
 Set a Shopify webhook for "Product create", "Product update", "Product delete" with value:
+
 ```
 https://your-kirby.com/kirby-shopify/api/cache/products/clear
 ```
 
 Set a Shopify webhook for "Collection create", "Collection update", "Collection delete" with value:
+
 ```
 https://your-kirby.com/kirby-shopify/api/cache/collections/clear
 ```
+
 At the end of https://xxx.myshopify.com/admin/settings/notifications
 
 (The webhook is verified for security reasons: https://help.shopify.com/en/api/getting-started/webhooks#verify-webhook)
@@ -184,6 +189,7 @@ export default Shop;
 
 You can resize thumbnails directly from Shopify CDN using this field method and the Shopify `img_url` attribute.
 https://help.shopify.com/en/themes/liquid/filters/url-filters#img_url
+
 ```
 <img src="<?= $page->shopifyImages()->toStructure()->first()->src()->img_url('1000x1000') ?>" />
 ```
